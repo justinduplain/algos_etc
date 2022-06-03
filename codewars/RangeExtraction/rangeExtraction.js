@@ -24,13 +24,13 @@ const solution = array => {
   }
 
   //run through the array from the left and stop at the end
-  while (b < array.length) {
+  while (a < array.length) {
     /* If x and a are pointing at the same index, then we haven't
     started evaluating a range *yet* */
-    if (x === a && b) {
+    if (x === a) {
       //if the right value is more than one higher than left
       //are not evaluating a range.
-      if (array[b] - array[a] > 1) {
+      if (array[b] - array[a] !== 1) {
         //Add the left number to the result array.
         result.push(array[x])
         updatePointers()
@@ -61,5 +61,5 @@ const solution = array => {
 }
 
 solution([
-  -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20,
-]) //"-6,-3-1,3-5,7-11,14,15,17-20"
+  -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20, 25,
+]) //"-6,-3-1,3-5,7-11,14,15,17-20,25"
