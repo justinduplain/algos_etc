@@ -36,13 +36,19 @@ Doubled numbers don't count
 **********************/
 
 const secondLargest = array => {
-  let largest = -Infinity
-  let second
-  //loop through the array
-  //if val at index is > largest {
-  // second = largest
-  //largest = value at index
+  let [largest, second] = [-Infinity, -Infinity]
+  array.forEach(val => {
+    if (val > largest) {
+      second = largest
+      largest = val
+    } else if (val > second && val < largest) second = val
+  })
+  return second
 }
+
+secondLargest([
+  8, 3, 4, 6, 1, 2, 7, 4, 5, 9, 9, 8, 7, 6, 5, 3, 4, 8, 4, 5, 4, 5, 4,
+]) //8
 
 /**********************
 | Prompt Three
@@ -63,7 +69,7 @@ function getUniqueCharIndex(str) {
   for (let i = 0; i < str.length; i++) {
     let char = str[i]
     if (map[char] === 1) {
-      return (idx = i + 1)
+      return (idx = i)
     }
   }
   return idx
