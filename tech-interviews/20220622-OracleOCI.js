@@ -59,21 +59,31 @@ eg. getUniqueCharIndex('evaluate') //returns 2 as v is the first unique characte
 
 **********************/
 
-function getUniqueCharIndex(str) {
-  str = str.split('')
+function firstNonRepeatingCharacter(string) {
   let map = {}
-  let idx = -1
-  str.forEach((char, i) => {
-    map.hasOwnProperty(char) ? (map[char] = 0) : (map[char] = 1)
-  })
-  for (let i = 0; i < str.length; i++) {
-    let char = str[i]
-    if (map[char] === 1) {
-      return (idx = i)
-    }
+  for (let i = 0; i < string.length; i++){
+    let char = string.charAt(i)
+    map[char] ? map[char]++ : map[char] = 1;
   }
-  return idx
+  for (let i = 0; i < string.length; i++){
+    let char = string.charAt(i)
+    if (map[char] === 1) return i
+  }
+  return -1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 getUniqueCharIndex('evaluate')
 getUniqueCharIndex('srs')
