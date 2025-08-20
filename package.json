@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "ts": "tsx",
-    "dev": "tsx watch src/main.ts",
+    "dev": "tsx watch src/codewars/validBraces.ts",
     "build": "tsc -p .",
     "start": "node dist/main.js"
   },
